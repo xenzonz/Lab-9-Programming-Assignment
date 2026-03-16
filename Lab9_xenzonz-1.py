@@ -12,10 +12,10 @@ v. 3/15/2026
 
 from player import Player
 
-def get_play_choice():
+def get_play_choice() -> str:
     #ask if player wants to play a round
     while True:
-        choice = input("toss coins? y/n").strip().lower()
+        choice: str = input("toss coins? y/n").strip().lower()
 
         if choice in ("y", "n"):
             return choice
@@ -23,8 +23,13 @@ def get_play_choice():
 def play_round():
     return 0 #toss coins
 
-def print_wallets():
-    return 0 #print wallets
+def print_wallets(player1: Player, player2: Player) -> None:
+    
+    #player 1
+    print(f"{player1.get_name()} has {player1.get_wallet()} coins") 
+
+    #player 2
+    print(f"{player2.get_name()} has {player2.get_wallet()} coins") 
 
 def final_score_results():
     return 0 #final score and announce winner 
