@@ -4,7 +4,7 @@ print("coin world")
 Docstring for Lab9_xenzonz_1
 i. LAB 9: Match Coins
 ii. Sam Cocquyt
-iii. Coin code
+iii. This class represents a single, tossable coin. It only knows about its own state (heads or tails).
 iv. No starter code
 v. 3/15/2026
 """
