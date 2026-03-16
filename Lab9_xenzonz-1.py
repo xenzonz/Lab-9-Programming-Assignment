@@ -1,4 +1,4 @@
-print("main world")
+#print("main world")
 
 """
 Docstring for Lab9_xenzonz_1
@@ -19,6 +19,7 @@ def get_play_choice() -> str:
 
         if choice in ("y", "n"):
             return choice
+        
 
 def play_round(player1: Player, player2: Player) -> None:
     
@@ -46,20 +47,37 @@ def play_round(player1: Player, player2: Player) -> None:
 
 
 def print_wallets(player1: Player, player2: Player) -> None:
-
     #player 1
     print(f"{player1.get_name()} has {player1.get_wallet()} coins") 
 
     #player 2
     print(f"{player2.get_name()} has {player2.get_wallet()} coins") 
 
+
 def final_score_results(player1: Player, player2: Player):
-    return 0 #final score and announce winner 
+
+    print(f"{player1.get_name()} : {player1.get_wallet()}") 
+    print(f"{player2.get_name()} : {player2.get_wallet()}") 
+
+    if player1.get_wallet() > player2.get_wallet():
+        print(f"{player1.get_name()} finished with more coins")
+    elif player2.get_wallet() > player1.get_wallet():
+        print(f"{player2.get_name()} finished with more coins")
+    else:
+        print("draw")
 
 def main() -> None:
 
     player1: Player = Player("Player 1")
     player2: Player = Player("Player 2")
+
+    print_wallets(player1, player2)
+
+    choice: str = get_play_choice
+
+    while choice == "y":
+        play_round(player1, player2)
+        print_wallets(player1, player2)
 
 
 
