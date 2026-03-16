@@ -8,3 +8,7 @@ iii. Coin code
 iv. No starter code
 v. 3/15/2026
 """
+
+class Coin:
+    def __init__(self):
+        pass

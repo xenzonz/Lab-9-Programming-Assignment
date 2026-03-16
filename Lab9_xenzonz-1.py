@@ -8,3 +8,7 @@ iii. Main code
 iv. No starter code
 v. 3/15/2026
 """
+
+
+def main() -> None:
+    return 0

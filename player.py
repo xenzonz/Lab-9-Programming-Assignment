@@ -8,3 +8,7 @@ iii. Player code
 iv. No starter code
 v. 3/15/2026
 """
+
+class Player:
+    def __init__(self):
+        pass
