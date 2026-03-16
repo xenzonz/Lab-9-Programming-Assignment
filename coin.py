@@ -39,4 +39,5 @@ def test():
         print(toss1)
         print(test_coin.get_sideup())
 
-test()
+if __name__ == "__main__":
+    test()
