@@ -1,4 +1,4 @@
-print("coin world")
+#print("coin world")
 
 """
 Docstring for Lab9_xenzonz_1
@@ -12,22 +12,40 @@ v. 3/15/2026
 import random
 
 class Coin:
-    
+    """
+    Represent a single coin that can be tossed.
+
+    Attributes:
+        __sideup (str): The current side of the coin, either 'Heads' or 'Tails'.
+    """
     def __init__(self) -> None:
-        #initialize coin object
+        """
+        Initialize a Coin object.
+
+        The coin starts with a random side facing up.
+        """
         self.__sideup: str = random.choice(["heads", "tails"])
 
     def toss(self) -> None:
-
+        """
+        Toss the coin and randomly set it to Heads or Tails.
+        """
         if random.randint(0,1) == 0:
             self.__sideup = "heads"
         else:
             self.__sideup = "tails"
 
     def get_sideup(self) -> str:
+        """
+        Return the side of the coin that is currently facing up.
 
+        Returns:
+            str: The current side of the coin.
+        """
         return self.__sideup
-    
+
+#test code 
+"""
 def test():
 
     test_coin = Coin()
@@ -41,3 +59,4 @@ def test():
 
 if __name__ == "__main__":
     test()
+"""

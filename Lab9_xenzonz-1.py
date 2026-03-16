@@ -13,18 +13,35 @@ v. 3/15/2026
 from player import Player
 
 def get_play_choice() -> str:
-    #ask if player wants to play a round
+    """
+    Ask the user if they want to play a round.
+
+    Returns:
+        str: The user's validated choice ('y' or 'n').
+    """
     while True:
-        choice: str = input("toss coins? y/n").strip().lower()
+        choice: str = input("Do you want to toss the coins? (y/n): ").strip().lower()
 
         if choice in ("y", "n"):
             return choice
         
+        print("Please enter 'y' or 'n'.")
+        
 
 def play_round(player1: Player, player2: Player) -> None:
-    
-    #if both coins match, player1 wins a coin, player2 loses a coin
-    #if no coins match, player1 loses a coin, player2 wins a coin
+    """
+    Plays a round of the Match Coins game.
+
+    Rules of the game:
+        If both coin sides match, Player 1 wins a coin and Player 2 loses one.
+        If the coin sides do not match, Player 2 wins a coin and Player 1 loses one.
+
+    Args:
+        player1 (Player): The first player.
+        player2 (Player): The second player.
+    """
+
+    print("\nTossing...")
 
     player1.toss_coin()
     player2.toss_coin()
@@ -38,45 +55,65 @@ def play_round(player1: Player, player2: Player) -> None:
     if side_player1 == side_player2:
         player1.win_coin() #win
         player2.lose_coin() #lose
-        print(f"matched, {player1.get_name()} wins a coin")
+        print(f"...It's a Match! {player1.get_name()} wins a coin.")
     else:
         player1.lose_coin() #lose
         player2.win_coin() #win
-        print(f"no match, {player2.get_name()} wins a coin")
+        print(f"...No Match! {player2.get_name()} wins a coin.")
 
 
 
 def print_wallets(player1: Player, player2: Player) -> None:
+    """
+    Print the current number of coins each player has.
+
+    Args:
+        player1 (Player): The first player.
+        player2 (Player): The second player.
+    """
     #player 1
-    print(f"{player1.get_name()} has {player1.get_wallet()} coins") 
+    print(f"{player1.get_name()} has {player1.get_wallet()} coins.") 
 
     #player 2
-    print(f"{player2.get_name()} has {player2.get_wallet()} coins") 
+    print(f"{player2.get_name()} has {player2.get_wallet()} coins.") 
 
 
 def final_score_results(player1: Player, player2: Player) -> None:
+    """
+    Print the final score and announce the winner.
 
-    print(f"{player1.get_name()} : {player1.get_wallet()}") 
-    print(f"{player2.get_name()} : {player2.get_wallet()}") 
+    Args:
+        player1 (Player): The first player.
+        player2 (Player): The second player.
+    """
+    print("\n--- Final Score ---")
+    print(f"{player1.get_name()}: {player1.get_wallet()}") 
+    print(f"{player2.get_name()}: {player2.get_wallet()}") 
 
     if player1.get_wallet() > player2.get_wallet():
-        print(f"{player1.get_name()} finished with more coins")
+        print(f"{player1.get_name()} finished with more coins!")
     elif player2.get_wallet() > player1.get_wallet():
-        print(f"{player2.get_name()} finished with more coins")
+        print(f"{player2.get_name()} finished with more coins!")
     else:
-        print("draw")
+        print("Its a draw!")
 
 def main() -> None:
+    """
+    Runs the Match Coins game.
+    """
 
     player1: Player = Player("Player 1")
     player2: Player = Player("Player 2")
 
+    print("--- Coin Match Game ---")
     print_wallets(player1, player2)
+    print()
 
     choice: str = get_play_choice()
 
     while choice == "y":
         play_round(player1, player2)
+        print()
         print_wallets(player1, player2)
 
         if player1.get_wallet == 0:
@@ -87,6 +124,7 @@ def main() -> None:
             print("game over! player 2 no money")
             break
 
+        print()
         choice = get_play_choice()
     
     final_score_results(player1, player2)
