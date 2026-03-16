@@ -27,4 +27,16 @@ class Coin:
     def get_sideup(self) -> str:
 
         return self.__sideup
+    
+def test():
 
+    test_coin = Coin()
+
+    print(test_coin.get_sideup())
+
+    for toss1 in range(1, 10):
+        test_coin.toss()
+        print(toss1)
+        print(test_coin.get_sideup())
+
+test()
