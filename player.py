@@ -18,22 +18,22 @@ class Player:
         self.__wallet: int = 20
         self.__coin: Coin = Coin()
 
-    def toss_coin(self):
+    def toss_coin(self) -> None:
         self.__coin.toss()
 
-    def get_coin_side(self):
+    def get_coin_side(self) -> str:
         return self.__coin.get_sideup()
 
-    def win_coin(self):
+    def win_coin(self) -> None:
         self.__wallet += 1
 
-    def lose_coin(self):
+    def lose_coin(self) -> None:
         self.__wallet -= 1
     
-    def get_wallet(self):
+    def get_wallet(self) -> int:
         return self.__wallet
     
-    def get_name(self):
+    def get_name(self) -> str:
         return self.__name
 
 
