@@ -14,16 +14,17 @@ import random
 class Coin:
     
     def __init__(self) -> None:
-        #initialize coin object, head side up by default
-        self.__sideup: str = "heads"
+        #initialize coin object
+        self.__sideup: str = random.choice(["heads", "tails"])
 
-    def toss(self):
+    def toss(self) -> None:
+
         if random.randint(0,1) == 0:
             self.__sideup = "heads"
         else:
             self.__sideup = "tails"
 
-    def get_sideup(self):
+    def get_sideup(self) -> str:
+
         return self.__sideup
 
-print(Coin)
