@@ -22,7 +22,7 @@ class Player:
         self.__coin.toss()
 
     def get_coin_side(self):
-        return self.__coin.get_sideup
+        return self.__coin.get_sideup()
 
     def win_coin(self):
         self.__wallet += 1
@@ -38,3 +38,21 @@ class Player:
 
 
 
+def test():
+    test_player = Player("player 1")
+
+    print(test_player.get_name())
+    print(test_player.get_wallet())
+    print(test_player.get_coin_side())
+
+    test_player.toss_coin()
+    print(test_player.get_coin_side())
+
+    test_player.win_coin()
+    print(test_player.get_wallet())
+
+    test_player.lose_coin()
+    print(test_player.get_wallet())
+
+if __name__ == "__main__":
+    test()
