@@ -4,7 +4,7 @@ print("player world")
 Docstring for Lab9_xenzonz_1
 i. LAB 9: Match Coins
 ii. Sam Cocquyt
-iii. Player code
+iii. This class represents a player. A player has a name, has a wallet of coins, and has a Coin object to toss.
 iv. No starter code
 v. 3/15/2026
 """
