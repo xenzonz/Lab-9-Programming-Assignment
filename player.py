@@ -25,16 +25,16 @@ class Player:
         return self.__coin.get_sideup
 
     def win_coin(self):
-        return 0
+        self.__wallet += 1
 
     def lose_coin(self):
-        return 0
+        self.__wallet -= 1
     
     def get_wallet(self):
-        return 0
+        return self.__wallet
     
     def get_name(self):
-        return 0
+        return self.__name
 
 
 
