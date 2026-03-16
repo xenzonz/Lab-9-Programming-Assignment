@@ -54,7 +54,7 @@ def print_wallets(player1: Player, player2: Player) -> None:
     print(f"{player2.get_name()} has {player2.get_wallet()} coins") 
 
 
-def final_score_results(player1: Player, player2: Player):
+def final_score_results(player1: Player, player2: Player) -> None:
 
     print(f"{player1.get_name()} : {player1.get_wallet()}") 
     print(f"{player2.get_name()} : {player2.get_wallet()}") 
@@ -73,11 +73,23 @@ def main() -> None:
 
     print_wallets(player1, player2)
 
-    choice: str = get_play_choice
+    choice: str = get_play_choice()
 
     while choice == "y":
         play_round(player1, player2)
         print_wallets(player1, player2)
+
+        if player1.get_wallet == 0:
+            print("game over! player 1 no money")
+            break
+        
+        if player2.get_wallet == 0:
+            print("game over! player 2 no money")
+            break
+
+        choice = get_play_choice()
+    
+    final_score_results(player1, player2)
 
 
 
